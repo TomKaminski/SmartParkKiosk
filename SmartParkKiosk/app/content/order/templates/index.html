@@ -1,0 +1,56 @@
+﻿<h3 class="center-align">Podaj swój adres email:</h3>
+<p class="center-align">
+    Jeżeli kupujesz wyjazdy po raz pierwszy, to adres email stanie się Twoim loginem.<br />
+    Na podany adres email zostanie wysłany unikatowy kod identyfikacyjny.
+</p>
+
+<div class="row">
+    <div class="col s6 offset-s3 center-align" ng-form name="form">
+        <div class="input-field">
+            <input type="email"  ng-model="ctrl.order.email"
+                   required id="email" name="email"
+                   ng-virtual-keyboard="{relative:false}"
+                   ng-class="{'has-error':form.email.$invalid && form.email.$touched, 
+                              'valid':!form.email.$invalid && form.email.$touched}">
+            <label for="email" ng-class="{'active':ctrl.order.email!=null}">email</label>
+            <span class="has-error" ng-show="form.email.$error.required && form.email.$touched">Podaj adres email!</span>
+            <span class="has-error" ng-show="form.email.$error.email && form.email.$touched">To nie jest prawidłowy adres email!</span>
+        </div>
+        <div class="input-field">
+            <input type="text" ng-model="ctrl.order.name"
+                   ng-virtual-keyboard="{relative:false}" required id="name" name="name"
+                   ng-class="{'has-error':form.name.$invalid && form.name.$touched,
+                              'valid':!form.name.$invalid && form.name.$touched}">
+            <label for="name" ng-class="{'active':ctrl.order.name!=null}">Imię</label>
+            <span class="has-error" ng-show="form.name.$error.required && form.name.$touched">Podaj imię!</span>
+        </div>
+        <div class="input-field">
+            <input type="text" ng-model="ctrl.order.lastname"
+                   ng-virtual-keyboard="{relative:false}" required id="lastname" name="lastname"
+                   ng-class="{'has-error':form.lastname.$invalid && form.lastname.$touched,
+                              'valid':!form.lastname.$invalid && form.lastname.$touched}">
+            <label for="lastname" ng-class="{'active':ctrl.order.lastname!=null}">Nazwisko</label>
+            <span class="has-error" ng-show="form.lastname.$error.required && form.lastname.$touched">Podaj nazwisko!</span>
+        </div>
+        <h3 class="text-center">Podaj ilość wyjazdów</h3>
+        <div class="input-field">
+            <div class="row">
+                <div class="col s3">
+                    <input type="number" name="charges" id="charges"
+                           ng-model="ctrl.order.charges" min="1" style="font-size: 2em;height:2em;"
+                           ng-class="{'has-error':form.charges.$invalid && form.charges.$touched,
+                                      'valid':!form.charges.$invalid && form.charges.$touched}"
+                           required value="{{ctrl.order.charges}}">
+                </div>
+                <div class="col s9">
+                    <slider floor="1" ceiling="50" step="1" precision="1" ng-model="ctrl.order.charges"></slider>
+                </div>
+            </div>
+            <span class="has-error" ng-show="form.charges.$error.required && form.charges.$touched">Podaj ilość wyjazdów!</span>
+            <span class="has-error" ng-show="form.charges.$error.number && form.charges.$touched">Podaj liczbę!</span>
+        </div>
+        <br />
+        <button class="btn btn-large" id="next" ng-class="{'disabled':form.$invalid}" ng-click="ctrl.processOrder()">Kontynuuj</button>
+        <button ui-sref="app.homepage" class="btn btn-large" id="back">Powrót</button>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+﻿<h1 class="center-align">Zastawienie zamówienia:</h1>
+
+<h2 class="center-align">Adres email: {{summary.order.email}}</h2>
+<h2 class="center-align">Ilość wyjazdów: {{summary.order.charges}}</h2>
+
+<h3 class="center-align">Przyłóż kartę do czytnika aby sfinalizować zamówienie:</h3>
+<!--<div class="col s6 offset-s3">
+    <button class="btn btn-primary" ng-class="{'disabled':summary.processing}" ng-click="summary.cardSet(main.order.email,main.order.charges,main.order.name,main.order.lastname)">
+    <div ng-if="main.processing">
+        Przetwarzanie...
+    </div>
+    <div ng-if="!main.processing">
+        Przyłóż kartę :D
+    </div>
+    </button>
+</div>-->
+<br />
+<br />
+<div class="col s6 offset-s3">
+    <a ui-sref="app.order" class="btn btn-primary" id="back">Powrót</a>
+</div>
