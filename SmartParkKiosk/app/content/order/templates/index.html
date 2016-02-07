@@ -12,7 +12,7 @@
                    ng-virtual-keyboard="{relative:false}"
                    ng-class="{'has-error':form.email.$invalid && form.email.$touched, 
                               'valid':!form.email.$invalid && form.email.$touched}">
-            <label for="email" ng-class="{'active':ctrl.order.email!=null}">email</label>
+            <label for="email" ng-class="{'active':ctrl.order.email!=''}">email</label>
             <span class="has-error" ng-show="form.email.$error.required && form.email.$touched">Podaj adres email!</span>
             <span class="has-error" ng-show="form.email.$error.email && form.email.$touched">To nie jest prawidłowy adres email!</span>
         </div>
@@ -21,7 +21,7 @@
                    ng-virtual-keyboard="{relative:false}" required id="name" name="name"
                    ng-class="{'has-error':form.name.$invalid && form.name.$touched,
                               'valid':!form.name.$invalid && form.name.$touched}">
-            <label for="name" ng-class="{'active':ctrl.order.name!=null}">Imię</label>
+            <label for="name" ng-class="{'active':ctrl.order.name!=''}">Imię</label>
             <span class="has-error" ng-show="form.name.$error.required && form.name.$touched">Podaj imię!</span>
         </div>
         <div class="input-field">
@@ -29,7 +29,7 @@
                    ng-virtual-keyboard="{relative:false}" required id="lastname" name="lastname"
                    ng-class="{'has-error':form.lastname.$invalid && form.lastname.$touched,
                               'valid':!form.lastname.$invalid && form.lastname.$touched}">
-            <label for="lastname" ng-class="{'active':ctrl.order.lastname!=null}">Nazwisko</label>
+            <label for="lastname" ng-class="{'active':ctrl.order.lastname!=''}">Nazwisko</label>
             <span class="has-error" ng-show="form.lastname.$error.required && form.lastname.$touched">Podaj nazwisko!</span>
         </div>
         <h3 class="text-center">Podaj ilość wyjazdów</h3>
